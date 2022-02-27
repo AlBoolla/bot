@@ -1,40 +1,8 @@
-import telebot;
-from telebot import types
-TOKEN = '5168579321:AAEkSPqBEb4UowrMR7col_SFgqhYIuzyavk'
-
-bot = telebot.TeleBot(TOKEN);
-
-@bot.message_handler(commands = ['start']) #Обработчик
-def start(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
-    item1 = types.KeyboardButton('Технологии')
-    item2 = types.KeyboardButton('Медицина')
-    item3 = types.KeyboardButton('Коммуникации')
-    item4 = types.KeyboardButton('Программирование')
-    item5 = types.KeyboardButton('Образование')
-    item6 = types.KeyboardButton('Дружба народов')
-
-    markup.add(item1, item2, item3, item4, item5, item6 )
-
-    bot.send_message(message.chat.id, "Привет, {0.first_name}!<br>Планета благодарна тебе за то, что ты решил стать гражданином Мира!" .format(message.from_user), reply_markup=markup)
-
-
 @bot.message_handler(content_types=['text'])
 def bot_message(message):
     if message.chat.type == 'private':
         if message.text == "Технологии":
-            markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
-            item1 = types.KeyboardButton('Исследования')
-            item2 = types.KeyboardButton('Робототехника')
-            item3 = types.KeyboardButton('Водородные технологии')
-            item4 = types.KeyboardButton('Альтернативная энергетика')
-            item5 = types.KeyboardButton('Ботаника')
-            item6 = types.KeyboardButton('Машиностроение')
-            back = types.KeyboardButton('Назад')
-
-            markup.add(item1, item2, item3, item4, item5, item6, back)
-
-            bot.send_message(message.chat.id, "Технологии", reply_markup=markup)
+          reply_markup = nav.Technology
 
         elif message.text == "Медицина":
             markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
@@ -116,6 +84,14 @@ def bot_message(message):
 
             bot.send_message(message.chat.id, "Дружба народов".format(message.from_user), reply_markup=markup)
 
+    @bot.message_handler(content_types=['text'])
+    def bot_message(message):
+        if message.chat.type == 'private':
+            if message.text == "Исследования":
+                item1 = types.KeyboardButton('Гравитация')
+                item2 = types.KeyboardButton('Эфир')
+                back = types.KeyboardButton('Назад')
 
+                markup.add(item1, item2, back)
 
-bot.polling(none_stop = True)
+                bot.send_message(message.chat.id, "Исследования", reply_markup=marku
