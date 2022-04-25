@@ -1,9 +1,10 @@
-
-import telebot;
+import bot_menu.py
+import telebot
 from telebot import types
 
 
 #Технологии
+
 tech1 = types.KeyboardButton('Водородные технологии')
 tech2 = types.KeyboardButton('Робототехника')
 tech3 = types.KeyboardButton('Машиностроение')
@@ -43,3 +44,6 @@ si = types.ReplyKeyboardMarkup(resize_keyboard = True) .add(si1, si2, markup)
 
 #Добавить схему
 sas = "Чтобы добавить схему, просто пришли ответное сообщение с файлом схемы. Фаил должен быть подписан и в фомате PDF"
+
+def test (message):
+    bot.send_message(message.chat.id, "Технологии", reply_markup.vt)
