@@ -28,6 +28,14 @@ def bot_message(message):
             bot.send_message(message.chat.id, "Программирование", reply_markup=programming.pro)
         elif message.text == "Образование":
             bot.send_message(message.chat.id, "Образование", reply_markup=education.ed)
+        elif message.text == "Водородные технологии":
+            bot.send_message(message.chat.id, "Водородные технологии", reply_markup=technology.vt)
+        elif message.text == "Водородные генераторы":
+            bot.send_message(message.chat.id, "Водородные генераторы", reply_markup=technology.vg)
+        elif message.text == "Схемы и инструкции":
+            bot.send_message(message.chat.id, "Схемы и инструкции", reply_markup=technology.si)
+        elif message.text == "Добавить схему":
+            bot.send_message(message.chat.id, "Чтобы добавить схему, просто пришли ответное сообщение с файлом схемы. Фаил должен быть подписан и в фомате PDF")
         else:
             bot.send_message(message.chat.id, "Я верю, что ты разберешься.", reply_markup=mainmenu.markup)
 
